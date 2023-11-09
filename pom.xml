@@ -6,4 +6,8 @@
   <packaging>pom</packaging>
   <name>ShopallProject</name>
   <description>Root project of Shopall Ecommerce</description>
+  
+  <modules>
+	  <module>ShopallCommon</module>
+  </modules>
 </project>
