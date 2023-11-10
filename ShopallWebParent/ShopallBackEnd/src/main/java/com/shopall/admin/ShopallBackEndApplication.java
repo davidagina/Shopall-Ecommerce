@@ -1,4 +1,4 @@
-package com.shopall;
+package com.shopall.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
