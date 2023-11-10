@@ -11,6 +11,7 @@
 	<groupId>com.shopall</groupId>
 	<artifactId>ShopallWebParent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>ShopallWebParent</name>
 	<description>Parent web project</description>
 	<properties>
