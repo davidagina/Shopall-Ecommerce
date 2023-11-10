@@ -9,5 +9,6 @@
   
   <modules>
 	  <module>ShopallCommon</module>
+	  <module>ShopallWebParent</module>
   </modules>
 </project>
