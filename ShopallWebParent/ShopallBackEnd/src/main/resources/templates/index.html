@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="ISO-8859-1">
-		<title>Shopall Admin Panel</title>
+		<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		<title>Home - Shopall Admin Panel</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+		<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</head>
 	
 	<body>
-		<h1>Welcome to Shopall Admin Panel</h1>
+		<div class="container-fluid">
+			<div>
+				<h1>Shopall Admin Panel</h1>
+			</div>
+			
+			<div>
+				<p>Shopall Admin Panel - Copyright &copy; Shopall</p>
+			</div>
+		</div>
+	
 	</body>
 </html>
