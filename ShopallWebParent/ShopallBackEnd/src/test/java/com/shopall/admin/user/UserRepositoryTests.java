@@ -31,6 +31,7 @@ public class UserRepositoryTests {
 		user.addRole(roleAdmin);
 		
 		User savedUser = repo.save(user);
+		System.out.println(user);
 		assertThat(savedUser.getId()).isGreaterThan(0);
 	}
 	
@@ -51,8 +52,45 @@ public class UserRepositoryTests {
 	@Test
 	public void testListAllUsers() {
 		Iterable<User> listUsers = repo.findAll();
-		listUsers.forEach(user -> System.out.println(user));
+		listUsers.forEach(user -> System.out.println(user));	
+		
+	}
+	
+	@Test
+	public void testGetUserById() {
+		User user = repo.findById(2).get();
+		System.out.println(user);
+		assertThat(user).isNotNull();
+	}
+	
+	@Test
+	public void testUpdateUserDetails() {
+		User user = repo.findById(1).get();
+		user.setEnabled(true);
+		user.setEmail("davnking@gmail.com");
+		
+		repo.save(user);
+		System.out.println(user);
+	}
+	
+	@Test
+	public void testUpdateUserRoles() {
+		User userDabby = repo.findById(2).get();
+		Role roleEditor = new Role(3);
+		Role roleSalesperson = new Role(2);
+		
+		
+		userDabby.getRoles().remove(roleEditor);
+		userDabby.addRole(roleSalesperson);
+		
+		repo.save(userDabby);
 		
 		
 	}
+	
+	@Test
+	public void testDeleteUserById() {
+		repo.deleteById(2);
+	}
+
 }
