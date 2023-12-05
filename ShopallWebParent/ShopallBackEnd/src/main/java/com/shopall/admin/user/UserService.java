@@ -14,6 +14,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
+	@Autowired
 	private RoleRepository roleRepo;
 	
 	public List<User> usersList(){
@@ -22,5 +23,10 @@ public class UserService {
 	
 	public List<Role> listRoles() {
 		return (List<Role>) roleRepo.findAll();
+	}
+
+	public void save(User user) {
+		userRepo.save(user);
+		
 	}
 }
