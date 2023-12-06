@@ -1,6 +1,7 @@
 package com.shopall.common.entity;
 
 import java.util.HashSet;
+//import java.util.Iterator;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -133,5 +134,19 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", roles=" + roles + "]";
 	}
+
+
+//	public boolean hasRole(String roleName) {
+//		Iterator<Role> iterator = roles.iterator();
+//		
+//		while (iterator.hasNext()) {
+//			Role role = iterator.next();
+//			if (role.getName().equals(roleName)) {
+//				return true;
+//			}
+//		}
+//		
+//		return false;
+//	}
 	
 }
