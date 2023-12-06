@@ -16,6 +16,6 @@ public class PasswordEncoderTest {
 		
 		boolean matches = passwordEncoder.matches(rawPassword, encodePassword);
 		
-		assertThat(matches).isEqualTo(true);
+		assertThat(matches).isTrue();
 	}
 }
