@@ -44,4 +44,9 @@ public class UserService {
 		User userByEmail = userRepo.getUserByEmail(email);
 		return userByEmail == null;
 	}
+	
+	public User getUserById(Integer id) {
+		User user = userRepo.findById(id).get();
+		return user;
+	}
 }
