@@ -1,6 +1,7 @@
 package com.shopall.admin.user;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -45,8 +46,13 @@ public class UserService {
 		return userByEmail == null;
 	}
 	
-	public User getUserById(Integer id) {
-		User user = userRepo.findById(id).get();
-		return user;
+	public User getUserById(Integer id) throws UserNotFoundException {
+		try {
+			User user = userRepo.findById(id).get();
+			return user;
+		} catch (NoSuchElementException e) {
+			throw new UserNotFoundException("Could not find any user with ID " + id);
+		}
+		
 	}
 }
