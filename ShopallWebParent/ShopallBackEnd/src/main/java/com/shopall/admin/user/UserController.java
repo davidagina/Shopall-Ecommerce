@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,7 +65,17 @@ public class UserController {
 			redirectAttributes.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/users";
 		}
-		
+	}
 	
+	@GetMapping("/users/delete/{id}")
+	public String deleteUser(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) throws UserNotFoundException {
+		try {
+			service.deleteUserById(id);
+			redirectAttributes.addFlashAttribute("message", "The user ID " + id + " has been deleted successfully.");
+		} catch (UserNotFoundException ex) {
+			redirectAttributes.addFlashAttribute("message", ex.getMessage());
+		}
+		
+		return "redirect:/users";
 	}
 }
