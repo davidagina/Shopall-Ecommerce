@@ -6,11 +6,13 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shopall.common.entity.Role;
 import com.shopall.common.entity.User;
 
 @Service
+@Transactional
 public class UserService {
 
 	@Autowired
