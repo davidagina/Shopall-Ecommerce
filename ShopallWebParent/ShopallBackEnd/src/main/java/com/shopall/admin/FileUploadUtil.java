@@ -35,6 +35,7 @@ public class FileUploadUtil {
 				if (!Files.isDirectory(file)) {
 					try {
 						Files.delete(file);
+						Files.delete(dirPath);
 					} catch (IOException ex) {
 						System.out.println("Could not delete file: " + file);
 					}
