@@ -88,8 +88,11 @@ public class UserController {
 	
 	@GetMapping("/users/delete/{id}")
 	public String deleteUser(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) throws UserNotFoundException {
+		
+		String uploadDir = "user-photos/" + id;
 		try {
 			service.deleteUserById(id);
+			FileUploadUtil.cleanDir(uploadDir);
 			redirectAttributes.addFlashAttribute("message", "The user ID " + id + " has been deleted successfully.");
 		} catch (UserNotFoundException ex) {
 			redirectAttributes.addFlashAttribute("message", ex.getMessage());
