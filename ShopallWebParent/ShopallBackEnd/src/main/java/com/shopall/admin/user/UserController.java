@@ -27,9 +27,7 @@ public class UserController {
 	
 	@GetMapping("/users")
 	public String listFirstPage(Model model) {
-		List<User> listUsers = service.usersList();
-		model.addAttribute("listUsers", listUsers);
-		return "users";
+		return listByPage(1, model);
 	}
 	
 	@GetMapping("/users/page/{pageNum}")
@@ -37,10 +35,15 @@ public class UserController {
 		Page<User> page = service.listByPage(pageNum);
 		List<User> listUsers = page.getContent();
 		
-		System.out.println("Total pages: " + pageNum);
-		System.out.println("Total elements: " + page.getTotalElements());
-		System.out.println("Total pages: " + page.getTotalPages());
+		long startCount = (pageNum - 1) * UserService.USERS_PER_PAGE + 1;
+		long endCount = startCount + UserService.USERS_PER_PAGE - 1;
+		if (endCount > page.getTotalElements()) {
+			endCount = page.getTotalElements();
+		}
 		
+		model.addAttribute("startCount", startCount);
+		model.addAttribute("endCount", endCount);
+		model.addAttribute("totalItems", page.getTotalElements());
 		model.addAttribute("listUsers", listUsers);
 		return "users";
 	}
