@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -25,8 +26,21 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping("/users")
-	public String usersList(Model model) {
+	public String listFirstPage(Model model) {
 		List<User> listUsers = service.usersList();
+		model.addAttribute("listUsers", listUsers);
+		return "users";
+	}
+	
+	@GetMapping("/users/page/{pageNum}")
+	public String listByPage(@PathVariable Integer pageNum, Model model) {
+		Page<User> page = service.listByPage(pageNum);
+		List<User> listUsers = page.getContent();
+		
+		System.out.println("Total pages: " + pageNum);
+		System.out.println("Total elements: " + page.getTotalElements());
+		System.out.println("Total pages: " + page.getTotalPages());
+		
 		model.addAttribute("listUsers", listUsers);
 		return "users";
 	}
@@ -108,4 +122,6 @@ public class UserController {
 		redirectAttributes.addFlashAttribute("message", "The user with ID: " + id + " has been " + status +".");
 		return "redirect:/users";
 	}
+	
+	
 }
