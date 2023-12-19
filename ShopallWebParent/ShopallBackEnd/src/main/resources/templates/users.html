@@ -123,7 +123,14 @@
 							</th>
 							<th>Roles</th>
 							<th>
-								Enabled
+								<a th:if="${sortField != 'enabled'}"
+								th:href="@{'/users/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${sortDir}}" class="text-white">Enabled</a>
+								
+								<a th:if="${sortField == 'enabled'}"
+								th:href="@{'/users/page/' + ${currentPage} + '?sortField=enabled&sortDir=' + ${reverseSortDir}}" class="text-white">Enabled</a>
+								
+								<span th:if="${sortField == 'enabled'}" 
+								th:class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
 							</th>
 							<th> </th>
 						</tr>
