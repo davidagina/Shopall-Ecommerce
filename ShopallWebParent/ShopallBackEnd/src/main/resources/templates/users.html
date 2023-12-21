@@ -76,8 +76,9 @@
 				<form th:action="@{/users/page/1}" class="form-inline m-3">
 					<input type="hidden" name="sortField" th:value="${sortField}" />
 					<input type="hidden" name="sortDir" th:value="${sortDir}"/>
+					
 					Filter: &nbsp;
-					<input type="search" name="keyword" class="form-control" required>
+					<input type="search" name="keyword" class="form-control" th:value="${keyword}" required>
 					&nbsp; &nbsp;
 					<input type="submit" value="search" class="btn btn-primary" />
 					&nbsp; &nbsp;
