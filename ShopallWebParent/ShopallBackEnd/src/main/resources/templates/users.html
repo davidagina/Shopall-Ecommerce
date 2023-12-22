@@ -90,16 +90,7 @@
 				<table class="table table-striped table-bordered table-hover table-responsive-xl">
 					<thead class="thead-dark">
 						<tr>
-							<th>
-								<a th:if="${sortField != 'id'}"
-								th:href="@{'/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}" class="text-white">User ID</a>
-								
-								<a th:if="${sortField == 'id'}"
-								th:href="@{'/users/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}" class="text-white">User ID</a>
-								
-								<span th:if="${sortField == 'id'}" 
-								th:class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
-							</th>
+							<th th:replace="fragments :: column_link('id', 'User ID')" />
 							
 							<th>Photos</th>
 							<th>
