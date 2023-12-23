@@ -20,6 +20,8 @@ import com.shopall.admin.FileUploadUtil;
 import com.shopall.common.entity.Role;
 import com.shopall.common.entity.User;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @Controller
 public class UserController {
 	
@@ -145,6 +147,13 @@ public class UserController {
 		String status = enabled ? "enabled" : "disabled";
 		redirectAttributes.addFlashAttribute("message", "The user with ID: " + id + " has been " + status +".");
 		return "redirect:/users";
+	}
+	
+	@GetMapping("/users/export/csv")
+	public void exportToCSV(HttpServletResponse response) {
+		List<User> listAll = service.usersList();
+		UserCsvExporter exporter = new UserCsvExporter();
+		exporter.export(listAll, response);
 	}
 	
 	
