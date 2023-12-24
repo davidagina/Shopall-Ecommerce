@@ -31,7 +31,7 @@ public class UserService {
 	private PasswordEncoder passwordEncoder;
 	
 	public List<User> usersList(){
-		return userRepo.findAll();
+		return userRepo.findAll(Sort.by("firstName").ascending());
 	}
 	
 	public Page<User> listByPage(int pageNum, String sortField, String sortDir, String keyword){
