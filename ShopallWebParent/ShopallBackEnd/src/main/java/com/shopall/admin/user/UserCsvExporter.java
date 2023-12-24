@@ -32,8 +32,13 @@ public class UserCsvExporter {
 				CsvPreference.STANDARD_PREFERENCE);
 		
 		String[]  csvHeader = {"User ID", "E-Mail", "First Name", "Last Name", "Roles", "Enabled"};
+		String[] fieldMapping = {"id", "email", "firstName", "lastName", "roles", "enabled"};
 		
 		csvWriter.writeHeader(csvHeader);
+		
+		for (User user : listUsers) {
+			csvWriter.write(user, fieldMapping);
+		}
 		
 		csvWriter.close();
 		
