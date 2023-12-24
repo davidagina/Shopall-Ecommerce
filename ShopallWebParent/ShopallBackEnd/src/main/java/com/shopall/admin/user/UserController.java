@@ -150,7 +150,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/users/export/csv")
-	public void exportToCSV(HttpServletResponse response) {
+	public void exportToCSV(HttpServletResponse response) throws IOException {
 		List<User> listAll = service.usersList();
 		UserCsvExporter exporter = new UserCsvExporter();
 		exporter.export(listAll, response);
