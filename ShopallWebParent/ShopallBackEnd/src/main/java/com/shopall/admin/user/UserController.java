@@ -160,6 +160,8 @@ public class UserController {
 	public void exportToExcel(HttpServletResponse response) throws IOException {
 		List<User> listAll = service.usersList();
 		
+		UserExcelExporter exporter = new UserExcelExporter();
+		exporter.export(listAll, response);
 	}
 	
 	
