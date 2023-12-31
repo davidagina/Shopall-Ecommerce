@@ -51,7 +51,11 @@ public class WebSecurityConfig {
 								.usernameParameter("email")
 								.permitAll())
 				
-				.logout(logout -> logout.permitAll());
+				.logout(logout -> logout.permitAll())
+				
+				.rememberMe(rem -> rem 
+						.key("hhghjdhbddghhbdxd_jklsd345")
+						.tokenValiditySeconds(7 * 24 * 60 * 60));
 			
 		return http.build();
 
