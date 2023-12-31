@@ -13,6 +13,7 @@ public class ShopallUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepo;
 	
+	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		User user = userRepo.getUserByEmail(email);
