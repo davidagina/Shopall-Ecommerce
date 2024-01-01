@@ -30,6 +30,10 @@ public class UserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	public User getByEmail(String email) {
+		return userRepo.getUserByEmail(email);
+	}
+	
 	public List<User> usersList(){
 		return userRepo.findAll(Sort.by("firstName").ascending());
 	}
