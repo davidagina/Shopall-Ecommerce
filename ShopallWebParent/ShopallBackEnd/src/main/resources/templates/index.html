@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" >
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-		<title>Home - Shopall Admin Panel</title>
-		
-		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-		<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}">
-		<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
-		<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-	</head>
 	
+	<head th:replace="fragments :: page_head('Home - Shopall Admin')"/>
 	<body>
 		<div class="container-fluid">
-		<div th:replace="fragments :: menu"/>
+		<div th:replace="navigation :: menu"/>
 			<div>
 				<h1>Shopall Admin Panel</h1>
 			</div>
 			
 			<div th:replace="fragments :: footer"/>
 		</div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#logoutLink").on("click", function(e) {
-				e.preventDefault();
-				document.logoutForm.submit();
-			})
-		});
-	</script>
+		
+	<script type="text/javascript" th:src="@{/js/common.js}"></script>
 	</body>
 </html>
