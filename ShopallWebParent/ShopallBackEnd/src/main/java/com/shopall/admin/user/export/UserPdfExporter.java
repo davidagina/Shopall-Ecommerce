@@ -13,7 +13,6 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.shopall.admin.user.AbstractExporter;
 import com.shopall.common.entity.User;
 
 import jakarta.servlet.http.HttpServletResponse;
