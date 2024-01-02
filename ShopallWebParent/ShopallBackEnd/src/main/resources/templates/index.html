@@ -7,7 +7,11 @@
 		<div class="container-fluid">
 		<div th:replace="navigation :: menu"/>
 			<div>
-				<h1>Shopall Admin Panel</h1>
+				<h2>Shopall Admin Panel</h2>
+				Welcome
+				<a th:href="@{/account}"
+				sec:authentication="principal.fullname"></a>
+				<span sec:authentication="principal.authorities"></span>
 			</div>
 			
 			<div th:replace="fragments :: footer"/>
