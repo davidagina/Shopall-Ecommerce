@@ -100,11 +100,10 @@ public class UserController {
 			service.save(user);
 		}
 		
-		
-		
 		redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
 		return getRedirectURLtoAffectedUser(user);
 	}
+	
 
 	private String getRedirectURLtoAffectedUser(User user) {
 		String firstPartOfEmail = user.getEmail().split("@")[0];
