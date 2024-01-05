@@ -1,4 +1,4 @@
-package com.shopall.admin.user;
+package com.shopall.admin.user.controller;
 
 import java.io.IOException;
 
@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shopall.admin.FileUploadUtil;
 import com.shopall.admin.security.ShopallUserDetails;
+import com.shopall.admin.user.UserService;
 import com.shopall.common.entity.User;
 
 @Controller
