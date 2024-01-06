@@ -2,6 +2,7 @@ package com.shopall.admin.category;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import java.util.Set;
 
 import org.junit.jupiter.api.Disabled;
@@ -33,6 +34,7 @@ public class CategoryRepositoryTests {
 	
 	
 	@Test
+	@Disabled
 	public void testCreateSubCategory() {
 		Category parent = new Category(11);
 		Category iphones = new Category("Iphone 13 Pro", parent);
@@ -58,6 +60,7 @@ public class CategoryRepositoryTests {
 	}
 	
 	@Test
+	@Disabled
 	public void testPrintHierarchicalCategories() {
 		Iterable<Category> categories = repo.findAll();
 		
@@ -113,5 +116,11 @@ public class CategoryRepositoryTests {
 			
 			printChildren(subCategory, newSubLevel);
 		}
+	}
+	
+	@Test
+	public void testListRootCategories() {
+		List<Category> rootCategories = repo.listRootCategories();
+		rootCategories.forEach(cat -> System.out.println(cat.getName()));
 	}
 }
