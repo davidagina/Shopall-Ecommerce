@@ -120,7 +120,7 @@ public class CategoryRepositoryTests {
 	
 	@Test
 	public void testListRootCategories() {
-		List<Category> rootCategories = repo.listRootCategories();
+		List<Category> rootCategories = repo.findRootCategories();
 		rootCategories.forEach(cat -> System.out.println(cat.getName()));
 	}
 }
