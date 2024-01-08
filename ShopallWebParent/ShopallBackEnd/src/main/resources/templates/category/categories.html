@@ -56,14 +56,14 @@
 							<td>[[${category.id}]]</td>
 							<td>
 								<span th:if="${category.image == null}" class="fas fa-portrait fa-3x icon-silver"></span>
-								<img th:if="${category.image != null}" th:src="@{${category.image}}" style="width: 100px;"/>
+								<img th:if="${category.image != null}" th:src="@{${category.getImagePath}}" style="width: 100px;" class="img-fluid"/>
 							</td>
 							<td>[[${category.name}]]</td>
 							<td>[[${category.alias}]]</td>
 							<td> <a th:if="${category.enabled == true}" class="fas fa-check-circle fa-2x icon-green" title="Disable this category" th:href="@{'/categories/' + ${category.id} + '/enabled/false'}"></a>
 								<a th:if="${category.enabled == false}" class="fas fa-circle fa-2x icon-silver" th:href="@{'/categories/' + ${category.id} + '/enabled/true'}" title="enable this category"></a>
 							</td>
-							<td><a class="fas fa-edit fa-2x icon-green" th:href="@{'/categories/edit/' + ${category.id}}" 
+							<td><a class="fas fa-edit fa-2x icon-green" th:href="@{'/category/edit/' + ${category.id}}" 
 							title="Edit this category"></a> &nbsp; 
 							<a class="fa-solid fa-trash fa-2x icon-dark link-delete" th:href="@{'/category/delete/' + ${category.id}}" 
 							th:categoryId="${category.id}" title="Delete this user"></a></td>
@@ -168,7 +168,7 @@
 		})
 		
 		function clearFilter(){
-			window.location = "[[@{/users}]]";
+			window.location = "[[@{/categories}]]";
 		}
 	</script>
 	<script th:src="@{/js/common.js}"></script>
